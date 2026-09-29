@@ -168,6 +168,17 @@ details summary { cursor: pointer; color: var(--muted); font-size: .85rem; }
 .tt-compose [hidden] { display: none !important; }
 .tt-compose button:disabled { opacity: .45; cursor: not-allowed; }
 .tt-compose label:has(input:disabled) { opacity: .45; }
+
+/* TikTok results on the Post tab (video.list) */
+.tt-results { margin-bottom: 16px; }
+.tt-results-head { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+.tt-results-head button { margin-left: auto; }
+.tt-results-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.tt-results-list li { display: grid; grid-template-columns: 54px 1fr; gap: 10px; align-items: center; }
+.tt-results-list img { width: 54px; height: 72px; object-fit: cover; border-radius: 6px; background: #000; }
+.tt-results-title { font-size: .95rem; }
+.tt-results-stats { display: flex; gap: 14px; font-variant-numeric: tabular-nums; margin: 2px 0; }
+
 </style>
 
 </head>
@@ -199,8 +210,11 @@ described in the <a href="http://www.google.com/policies/privacy">Google Privacy
 <ul>
   <li><strong>Upload videos</strong> (<code>youtube.upload</code>): to publish the videos we made.</li>
   <li><strong>View channel information</strong> (<code>youtube.readonly</code>): used only to confirm,
-    before every upload, that the connected channel is BuoyAI's. BuoyAI Clips refuses to upload to any
-    other channel.</li>
+    before every upload, that the connected channel is BuoyAI's, and to read the public view and like
+    counts of our own videos. BuoyAI Clips refuses to upload to any other channel.</li>
+  <li><strong>View YouTube Analytics reports</strong> (<code>yt-analytics.readonly</code>): to read how
+    our own videos perform (views, engaged views, average view duration), so we can see which videos
+    work.</li>
 </ul>
 
 <h3>What we store, and where</h3>
@@ -209,8 +223,9 @@ described in the <a href="http://www.google.com/policies/privacy">Google Privacy
     never sent to a BuoyAI server or anyone else.</li>
   <li>The ID and name of the connected channel.</li>
   <li>The ID and link of each video we upload, in our posting log, so we can link to our own posts.</li>
+  <li>Totals for our own videos (views, likes, average view duration) at a few points after posting.</li>
 </ul>
-<p>We store no other YouTube data, and nothing about people who watch our videos.</p>
+<p>We store no other YouTube data, and nothing about individual people who watch our videos.</p>
 
 <h3>How we use and share it</h3>
 <p>Only to upload BuoyAI's own videos, with titles and descriptions we wrote, to BuoyAI's channel.
@@ -246,12 +261,15 @@ Posting API.</p>
     choices.</li>
   <li><strong>Upload drafts</strong> (<code>video.upload</code>): to send a finished video to the TikTok
     inbox as a draft instead, to finish and post in the TikTok app.</li>
+  <li><strong>Video stats</strong> (<code>video.list</code>): to read the view, like, comment and share
+    counts of our own public videos and show them in BuoyAI Clips, so we can see which videos work.</li>
 </ul>
 
 <h3>What we store, and where</h3>
 <p>The access token, refresh token and open_id, stored only on the BuoyAI computer that runs BuoyAI
-Clips; the ID TikTok returns for each post and the choices made for it, in our posting log. We store nothing about other
-TikTok users or viewers, and we do not sell or share TikTok data.</p>
+Clips; the ID TikTok returns for each post, the choices made for it and its counts, in our posting
+log. We store nothing about other TikTok users or individual viewers, and we do not sell or share
+TikTok data.</p>
 
 <h3>Revoking and deletion</h3>
 <p>The account owner can remove BuoyAI's access at any time in the TikTok app's settings, where the
@@ -260,8 +278,9 @@ removed, or immediately on request, and upload IDs within 30 days.</p>
 
 <h2 id="instagram">Instagram</h2>
 <p>When connected, the Instagram access token is stored only on the computer that runs BuoyAI Clips,
-is used only to publish BuoyAI's own videos to BuoyAI's own account, and can be revoked in
-Instagram's settings under apps and websites.</p>
+is used only to publish BuoyAI's own videos to BuoyAI's own account and to read the insights of
+those posts (<code>instagram_business_manage_insights</code>: views, reach, saves and shares), and can
+be revoked in Instagram's settings under apps and websites.</p>
 
 <h2>Contact</h2>
 <p>BuoyAI LLC · <a href="mailto:privacy@buoy-ai.com">privacy@buoy-ai.com</a></p>

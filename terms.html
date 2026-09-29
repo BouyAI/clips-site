@@ -168,6 +168,17 @@ details summary { cursor: pointer; color: var(--muted); font-size: .85rem; }
 .tt-compose [hidden] { display: none !important; }
 .tt-compose button:disabled { opacity: .45; cursor: not-allowed; }
 .tt-compose label:has(input:disabled) { opacity: .45; }
+
+/* TikTok results on the Post tab (video.list) */
+.tt-results { margin-bottom: 16px; }
+.tt-results-head { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+.tt-results-head button { margin-left: auto; }
+.tt-results-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.tt-results-list li { display: grid; grid-template-columns: 54px 1fr; gap: 10px; align-items: center; }
+.tt-results-list img { width: 54px; height: 72px; object-fit: cover; border-radius: 6px; background: #000; }
+.tt-results-title { font-size: .95rem; }
+.tt-results-stats { display: flex; gap: 14px; font-variant-numeric: tabular-nums; margin: 2px 0; }
+
 </style>
 
 </head>
